@@ -1068,7 +1068,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Jogador: {fileID: 544937263}
-  Velocity: 5
+  Velocity: 4
 --- !u!1001 &2120329841
 PrefabInstance:
   m_ObjectHideFlags: 0
