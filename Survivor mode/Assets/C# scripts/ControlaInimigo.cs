@@ -28,9 +28,9 @@ public class ControlaInimigo : MonoBehaviour
                 Direction.normalized * Velocity * Time.deltaTime);
         
 
-        Quaternion NewRotation = Quaternion.LookRotation(Direction);
+            Quaternion NewRotation = Quaternion.LookRotation(Direction);
 
-        GetComponent<Rigidbody>().MoveRotation(NewRotation);
+            GetComponent<Rigidbody>().MoveRotation(NewRotation);
         }
     }
 }
