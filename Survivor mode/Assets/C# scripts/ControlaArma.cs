@@ -4,9 +4,8 @@ using UnityEngine;
 public class ControlaArma : MonoBehaviour
 {
     public GameObject Bullet;
-    public GameObject bullet_out;
-    public GameObject bullet_out_running;
-    public Vector3 Direction;
+    public GameObject BulletOut;
+    public GameObject BulletOutRunning;
     void Start()
     {
 
@@ -14,19 +13,16 @@ public class ControlaArma : MonoBehaviour
 
     void Update()
     {
-        float x = Input.GetAxis("Horizontal");
-        float z = Input.GetAxis("Vertical");
-
-        Direction = new Vector3(x, 0, z);
+        
         if (Input.GetButtonDown("Fire1"))
         {
-            if (Direction != Vector3.zero)
+            if (GetComponent<ControlaJogador>().Direction != Vector3.zero)
             {
-                Instantiate(Bullet, bullet_out_running.transform.position, bullet_out_running.transform.rotation);
+                Instantiate(Bullet, BulletOutRunning.transform.position, BulletOutRunning.transform.rotation);
             }
             else
             {
-                Instantiate(Bullet, bullet_out.transform.position, bullet_out.transform.rotation);
+                Instantiate(Bullet, BulletOut.transform.position, BulletOut.transform.rotation);
             }
         }
     }

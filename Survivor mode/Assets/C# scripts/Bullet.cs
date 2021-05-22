@@ -4,10 +4,19 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public float velocity = 50;
+    public float Velocity = 50;
     // Update is called once per frame
     void FixedUpdate()
     {
-        GetComponent<Rigidbody>().MovePosition(GetComponent<Rigidbody>().position - transform.forward * velocity * Time.deltaTime);
+        GetComponent<Rigidbody>().MovePosition(GetComponent<Rigidbody>().position - transform.forward * Velocity * Time.deltaTime);
+    }
+
+    private void OnTriggerEnter(Collider CollisionObject)
+    {
+        if (CollisionObject.tag == "Inimigo")
+        {
+            Destroy(CollisionObject.gameObject);
+        }
+        Destroy(gameObject);
     }
 }

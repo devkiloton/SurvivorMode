@@ -1,12 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ControlaJogador : MonoBehaviour
 {
     public float Velocity = 10;
     public Vector3 Direction;
     public LayerMask FloorMask;
+    public GameObject GameOverText;
+    public bool Life = true;
+    private Rigidbody rigibodyPlayer;
+    private Animator animatorPlayer;
+    private void Start()
+    {
+        Time.timeScale = 1;
+        rigibodyPlayer = GetComponent<Rigidbody>();
+        animatorPlayer = GetComponent<Animator>();
+    }
     void Update()
     {
         float x = Input.GetAxis("Horizontal");
@@ -16,20 +27,26 @@ public class ControlaJogador : MonoBehaviour
 
         if (Direction != Vector3.zero)
         {
-            GetComponent<Animator>().SetBool("movendo", true);
+            animatorPlayer.SetBool("movendo", true);
         }
         else
         {
-            GetComponent<Animator>().SetBool("movendo", false);
+            animatorPlayer.SetBool("movendo", false);
+        }
+        if (Life == false)
+        {
+            if (Input.GetButtonDown("Fire1"))
+            {
+                SceneManager.LoadScene("game");
+            }
+
         }
 
     }
     void FixedUpdate()
     {
-
-
-        GetComponent<Rigidbody>().MovePosition
-                (GetComponent<Rigidbody>().position +
+        rigibodyPlayer.MovePosition
+                (rigibodyPlayer.position +
                 (Direction * Velocity * Time.deltaTime));
         Ray sight = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit impact;
@@ -39,7 +56,7 @@ public class ControlaJogador : MonoBehaviour
             Vector3 PlayerSight = impact.point - transform.position;
             PlayerSight.y = transform.position.y;
             Quaternion NewRotation = Quaternion.LookRotation(PlayerSight);
-            GetComponent<Rigidbody>().MoveRotation(NewRotation);
+            rigibodyPlayer.MoveRotation(NewRotation);
         }
     }
 }
