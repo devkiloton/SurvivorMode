@@ -7,18 +7,16 @@ public class ControlaInimigo : MonoBehaviour
     public GameObject Jogador;
     public float Velocity = 4;
     private ControlaJogador controlJogador;
-    private Rigidbody rigidZombie;
-    private Animator animatorZombie;
     private SpriteMovements myMovements;
+    private AnimationsController myAnimator;
     void Start()
     {
         Jogador = GameObject.FindWithTag("Player");
-        int RandNum = Random.Range(1, 28);
-        transform.GetChild(RandNum).gameObject.SetActive(true);
         controlJogador = Jogador.GetComponent<ControlaJogador>();
-        rigidZombie = GetComponent<Rigidbody>();
-        animatorZombie = GetComponent<Animator>();
         myMovements = GetComponent<SpriteMovements>();
+        myAnimator = GetComponent<AnimationsController>();
+        ZombieRandomizer();
+
     }
     private void FixedUpdate()
     {
@@ -28,11 +26,11 @@ public class ControlaInimigo : MonoBehaviour
         if (distance > 2.8)
         {
             myMovements.Movement(Direction, Velocity);
-            animatorZombie.SetBool("Atacando", false);
+            myAnimator.ZombieAttackAnimation(false);
         }
         else
         {
-            animatorZombie.SetBool("Atacando", true);
+            myAnimator.ZombieAttackAnimation(true);
         }
     }
     public void ZombieAttack()
@@ -40,4 +38,10 @@ public class ControlaInimigo : MonoBehaviour
         int damage = Random.Range(20, 30);
         controlJogador.GetDamage(damage);
     } 
+
+    public void ZombieRandomizer()
+    {
+        int RandNum = Random.Range(1, 28);
+        transform.GetChild(RandNum).gameObject.SetActive(true);
+    }
 }

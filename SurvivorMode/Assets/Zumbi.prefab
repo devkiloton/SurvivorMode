@@ -642,6 +642,7 @@ GameObject:
   - component: {fileID: 4859588184997966725}
   - component: {fileID: 4859588184997966726}
   - component: {fileID: 2783651421965505780}
+  - component: {fileID: 1008953586173038906}
   m_Layer: 0
   m_Name: Zumbi
   m_TagString: Inimigo
@@ -700,7 +701,7 @@ Rigidbody:
   m_GameObject: {fileID: 4860367556579280305}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 0
+  m_Drag: 1
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
@@ -764,6 +765,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5a061f7fcddfcd54b889f194c49ab5d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myBody: {fileID: 0}
+--- !u!114 &1008953586173038906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4860367556579280305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8258089c0871b5041b87158a4c13d0a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &4860512402938399803

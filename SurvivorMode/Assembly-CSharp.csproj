@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{EFA8CDE3-277F-6FF6-EF48-3D3DFF7B8BB9}</ProjectGuid>
+    <ProjectGuid>{5B6E132E-5728-CACA-E795-0EF253B8A7E6}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -65,6 +65,8 @@
     <Compile Include="Assets\C# scripts\ZombieGenerator.cs" />
     <Compile Include="Assets\C# scripts\AudioController.cs" />
     <Compile Include="Assets\C# scripts\SpriteMovements.cs" />
+    <Compile Include="Assets\C# scripts\AnimationsController.cs" />
+    <Compile Include="Assets\C# scripts\PlayerMovement.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\Samples\Modelos3D\Personagens\Animacoes\Animacoes.txt" />

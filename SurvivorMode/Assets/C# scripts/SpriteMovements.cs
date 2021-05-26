@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SpriteMovements : MonoBehaviour
 {
-    private Rigidbody myBody;
+    public Rigidbody myBody;
     void Awake()
     {
         myBody = GetComponent<Rigidbody>();
@@ -13,6 +13,11 @@ public class SpriteMovements : MonoBehaviour
     {
         myBody.MovePosition(myBody.position +
                            (direction.normalized * velocity * Time.deltaTime));
+    }
+    public void KeyboardMovement(Vector3 direction, float velocity)
+    {
+        myBody.MovePosition(myBody.position +
+                           (direction * velocity * Time.deltaTime));
     }
     public void QuarternionRotation(Vector3 direction)
     {

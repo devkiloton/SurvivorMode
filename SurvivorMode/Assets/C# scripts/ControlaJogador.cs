@@ -9,16 +9,16 @@ public class ControlaJogador : MonoBehaviour
     public Vector3 Direction;
     public LayerMask FloorMask;
     public GameObject GameOverText;
-    private Rigidbody rigibodyPlayer;
-    private Animator animatorPlayer;
     public int LifeBar = 100;
     public UIController ScrUIController;
     public AudioClip DamageSound;
+    private PlayerMovement myPlayerAnimatorAndRotation;
+    private AnimationsController myMovements;
     private void Start()
     {
         Time.timeScale = 1;
-        rigibodyPlayer = GetComponent<Rigidbody>();
-        animatorPlayer = GetComponent<Animator>();
+        myPlayerAnimatorAndRotation = GetComponent<PlayerMovement>();
+        myMovements = GetComponent<AnimationsController>();
     }
     void Update()
     {
@@ -27,14 +27,7 @@ public class ControlaJogador : MonoBehaviour
 
         Direction = new Vector3(x, 0, z);
 
-        if (Direction != Vector3.zero)
-        {
-            animatorPlayer.SetBool("movendo", true);
-        }
-        else
-        {
-            animatorPlayer.SetBool("movendo", false);
-        }
+        myMovements.MovementPlayer("Moving", Direction.magnitude);
         if (LifeBar <= 0)
         {
             if (Input.GetButtonDown("Fire1"))
@@ -45,18 +38,8 @@ public class ControlaJogador : MonoBehaviour
     }
     void FixedUpdate()
     {
-        rigibodyPlayer.MovePosition(rigibodyPlayer.position + 
-                                   (Direction * Velocity * Time.deltaTime));
-        Ray sight = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit impact;
-        Debug.DrawRay(sight.origin, sight.direction*100, Color.red);
-        if(Physics.Raycast(sight, out impact, 100, FloorMask))
-        {
-            Vector3 PlayerSight = impact.point - transform.position;
-            PlayerSight.y = transform.position.y;
-            Quaternion NewRotation = Quaternion.LookRotation(PlayerSight);
-            rigibodyPlayer.MoveRotation(NewRotation);
-        }
+        myPlayerAnimatorAndRotation.KeyboardMovement(Direction,Velocity);
+        myPlayerAnimatorAndRotation.PlayerRotation(FloorMask);
     }
     public void GetDamage(int damage)
     {
@@ -68,6 +51,5 @@ public class ControlaJogador : MonoBehaviour
             Time.timeScale = 0;
             GameOverText.SetActive(true);
         }
-        
     }
 }
