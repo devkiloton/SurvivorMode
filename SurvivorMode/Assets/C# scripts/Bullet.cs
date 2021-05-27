@@ -6,6 +6,7 @@ public class Bullet : MonoBehaviour
 {
     public float Velocity = 50;
     public AudioClip ZombieDeathSong;
+    private int danoDoTiro = 1;
     void FixedUpdate()
     {
         GetComponent<Rigidbody>().MovePosition(GetComponent<Rigidbody>().position - transform.forward * Velocity * Time.deltaTime);
@@ -13,10 +14,9 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter(Collider CollisionObject)
     {
-        if (CollisionObject.tag == "Inimigo")
+        if (CollisionObject.tag == Tags.Inimigo)
         {
-            Destroy(CollisionObject.gameObject);
-            AudioController.instance.PlayOneShot(ZombieDeathSong);
+            CollisionObject.GetComponent<ControlaInimigo>().GetDamage(danoDoTiro);
         }
         Destroy(gameObject);
     }

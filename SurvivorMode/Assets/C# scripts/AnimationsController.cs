@@ -13,8 +13,8 @@ public class AnimationsController : MonoBehaviour
     {
         myAnimator.SetBool("Atacando", state);
     }
-    public void MovementPlayer(string Moving, float x)
+    public void MovementPlayer(float x)
     {
-        myAnimator.SetFloat(Moving, x);
+        myAnimator.SetFloat("Moving", x);
     }
 }

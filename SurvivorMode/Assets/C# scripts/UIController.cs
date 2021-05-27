@@ -6,15 +6,16 @@ using UnityEngine.UI;
 public class UIController : MonoBehaviour
 {
     private ControlaJogador scriptPlayer;
+    public Slider mySlider;
     void Start()
     {
-        scriptPlayer = GameObject.FindWithTag("Player").GetComponent<ControlaJogador>();
-        GetComponent<Slider>().maxValue = scriptPlayer.LifeBar;
-        LifeBarClock();
+        scriptPlayer = GameObject.FindWithTag(Tags.Player).GetComponent<ControlaJogador>();
+        //mySlider = GetComponent<Slider>();
+        mySlider.maxValue = scriptPlayer.myStatus.Life;
     }
 
     public void LifeBarClock()
     {
-        GetComponent<Slider>().value = scriptPlayer.LifeBar;
+       mySlider.value = scriptPlayer.myStatus.Life;
     }
 }

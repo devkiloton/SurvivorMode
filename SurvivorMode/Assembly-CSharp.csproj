@@ -57,7 +57,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\C# scripts\UIController.cs" />
+    <Compile Include="Assets\C# scripts\Status.cs" />
     <Compile Include="Assets\C# scripts\ControlaJogador.cs" />
+    <Compile Include="Assets\C# scripts\PlayerMovement.cs" />
     <Compile Include="Assets\C# scripts\ControlaCamera.cs" />
     <Compile Include="Assets\C# scripts\ControlaArma.cs" />
     <Compile Include="Assets\C# scripts\ControlaInimigo.cs" />
@@ -66,7 +68,8 @@
     <Compile Include="Assets\C# scripts\AudioController.cs" />
     <Compile Include="Assets\C# scripts\SpriteMovements.cs" />
     <Compile Include="Assets\C# scripts\AnimationsController.cs" />
-    <Compile Include="Assets\C# scripts\PlayerMovement.cs" />
+    <Compile Include="Assets\C# scripts\IDamage.cs" />
+    <Compile Include="Assets\C# scripts\Tags.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\Samples\Modelos3D\Personagens\Animacoes\Animacoes.txt" />

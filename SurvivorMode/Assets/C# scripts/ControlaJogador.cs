@@ -3,22 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class ControlaJogador : MonoBehaviour
+public class ControlaJogador : MonoBehaviour, IDamage
 {
-    public float Velocity = 10;
+    
     public Vector3 Direction;
     public LayerMask FloorMask;
     public GameObject GameOverText;
-    public int LifeBar = 100;
     public UIController ScrUIController;
     public AudioClip DamageSound;
     private PlayerMovement myPlayerAnimatorAndRotation;
     private AnimationsController myMovements;
+    public Status myStatus;
     private void Start()
     {
         Time.timeScale = 1;
         myPlayerAnimatorAndRotation = GetComponent<PlayerMovement>();
         myMovements = GetComponent<AnimationsController>();
+        myStatus = GetComponent<Status>();
     }
     void Update()
     {
@@ -27,8 +28,8 @@ public class ControlaJogador : MonoBehaviour
 
         Direction = new Vector3(x, 0, z);
 
-        myMovements.MovementPlayer("Moving", Direction.magnitude);
-        if (LifeBar <= 0)
+        myMovements.MovementPlayer(Direction.magnitude);
+        if (myStatus.Life <= 0)
         {
             if (Input.GetButtonDown("Fire1"))
             {
@@ -38,18 +39,22 @@ public class ControlaJogador : MonoBehaviour
     }
     void FixedUpdate()
     {
-        myPlayerAnimatorAndRotation.KeyboardMovement(Direction,Velocity);
+        myPlayerAnimatorAndRotation.KeyboardMovement(Direction,myStatus.Velocity);
         myPlayerAnimatorAndRotation.PlayerRotation(FloorMask);
     }
     public void GetDamage(int damage)
     {
-        LifeBar -= damage;
+        myStatus.Life -= damage;
         AudioController.instance.PlayOneShot(DamageSound);
         ScrUIController.LifeBarClock();
-        if (LifeBar <= 0)
+        if (myStatus.Life <= 0)
         {
-            Time.timeScale = 0;
-            GameOverText.SetActive(true);
+            Death();
         }
+    }
+    public void Death()
+    {
+        Time.timeScale = 0;
+        GameOverText.SetActive(true);
     }
 }
