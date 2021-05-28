@@ -1,11 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class ControlaJogador : MonoBehaviour, IDamage
 {
-    
+
     public Vector3 Direction;
     public LayerMask FloorMask;
     public GameObject GameOverText;
@@ -16,7 +15,6 @@ public class ControlaJogador : MonoBehaviour, IDamage
     public Status myStatus;
     private void Start()
     {
-        Time.timeScale = 1;
         myPlayerAnimatorAndRotation = GetComponent<PlayerMovement>();
         myMovements = GetComponent<AnimationsController>();
         myStatus = GetComponent<Status>();
@@ -29,17 +27,10 @@ public class ControlaJogador : MonoBehaviour, IDamage
         Direction = new Vector3(x, 0, z);
 
         myMovements.MovementPlayer(Direction.magnitude);
-        if (myStatus.Life <= 0)
-        {
-            if (Input.GetButtonDown("Fire1"))
-            {
-                SceneManager.LoadScene("game");
-            }
-        }
     }
     void FixedUpdate()
     {
-        myPlayerAnimatorAndRotation.KeyboardMovement(Direction,myStatus.Velocity);
+        myPlayerAnimatorAndRotation.KeyboardMovement(Direction, myStatus.Velocity);
         myPlayerAnimatorAndRotation.PlayerRotation(FloorMask);
     }
     public void GetDamage(int damage)
@@ -54,7 +45,7 @@ public class ControlaJogador : MonoBehaviour, IDamage
     }
     public void Death()
     {
-        Time.timeScale = 0;
-        GameOverText.SetActive(true);
+        ScrUIController.GameOver();
+        //ScrUIController.GameOver();
     }
 }

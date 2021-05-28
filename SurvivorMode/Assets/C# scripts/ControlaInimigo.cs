@@ -42,6 +42,7 @@ public class ControlaInimigo : MonoBehaviour, IDamage
         }
         else
         {
+            Direction = Jogador.transform.position - transform.position;
             myAnimator.ZombieAttackAnimation(true);
         }
     }
