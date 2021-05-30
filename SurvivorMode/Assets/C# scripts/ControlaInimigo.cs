@@ -14,6 +14,9 @@ public class ControlaInimigo : MonoBehaviour, IDamage
     private Vector3 Direction;
     private float clockZombieChangePosition;
     private float timeZombieChangePosition = 4;
+    private float probabilityGenerateMedicKit = 0.1f;
+    public GameObject MedicKit;
+    private UIController scrUIController;
     void Start()
     {
         Jogador = GameObject.FindWithTag(Tags.Player);
@@ -22,6 +25,7 @@ public class ControlaInimigo : MonoBehaviour, IDamage
         myAnimator = GetComponent<AnimationsController>();
         ZombieRandomizer();
         myStatus = GetComponent<Status>();
+        scrUIController = GameObject.FindObjectOfType(typeof(UIController)) as UIController;
     }
     private void FixedUpdate()
     {
@@ -61,7 +65,6 @@ public class ControlaInimigo : MonoBehaviour, IDamage
             Direction = randomPosition - transform.position;
             myMovements.Movement(Direction, myStatus.Velocity);
         }
-
     }
     Vector3 positionRandomizerSphere()
     {
@@ -75,25 +78,31 @@ public class ControlaInimigo : MonoBehaviour, IDamage
         int damage = Random.Range(20, 30);
         controlJogador.GetDamage(damage);
     } 
-
     public void ZombieRandomizer()
     {
         int RandNum = Random.Range(1, 28);
         transform.GetChild(RandNum).gameObject.SetActive(true);
     }
-
     public void GetDamage(int damage)
     {
         myStatus.Life -= damage;
         if (myStatus.Life <= 0)
         {
             Death();
+            scrUIController.ZombieCounterUpdate();
         }
     }
-
     public void Death()
     {
         Destroy(gameObject);
         AudioController.instance.PlayOneShot(ZombieDeathSong);
+        verifyToGenerateMedicKit(probabilityGenerateMedicKit);
+    }
+    void verifyToGenerateMedicKit(float probabilityGenerateMedicKit)
+    {
+        if(Random.value <= probabilityGenerateMedicKit)
+        {
+            Instantiate(MedicKit, transform.position, Quaternion.identity);
+        }
     }
 }

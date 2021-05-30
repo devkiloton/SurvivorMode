@@ -12,6 +12,8 @@ public class UIController : MonoBehaviour
     public Text TimeAlive;
     public Text TimeAliveMax;
     private float savedTimeAliveMax;
+    public Text ZombieCounter;
+    private int numberDeadZombies;
 
     void Start()
     {
@@ -19,6 +21,12 @@ public class UIController : MonoBehaviour
         mySlider.maxValue = scriptPlayer.myStatus.Life;
         Time.timeScale = 1;
         savedTimeAliveMax = PlayerPrefs.GetFloat("BestTime");
+    }
+
+    public void ZombieCounterUpdate()
+    {
+        numberDeadZombies++;
+        ZombieCounter.text = "" + numberDeadZombies;
     }
 
     public void LifeBarClock()

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ControlaJogador : MonoBehaviour, IDamage
+public class ControlaJogador : MonoBehaviour, IDamage, ICure
 {
 
     public Vector3 Direction;
@@ -46,6 +46,14 @@ public class ControlaJogador : MonoBehaviour, IDamage
     public void Death()
     {
         ScrUIController.GameOver();
-        //ScrUIController.GameOver();
+    }
+    public void CureValue(int value)
+    {
+        myStatus.Life += value;
+        if(myStatus.Life > myStatus.InitialLife)
+        {
+            myStatus.Life = myStatus.InitialLife;
+        }
+        ScrUIController.LifeBarClock();
     }
 }
