@@ -24,4 +24,15 @@ public class SpriteMovements : MonoBehaviour
         Quaternion NewRotation = Quaternion.LookRotation(direction);
         myBody.MoveRotation(NewRotation);
     }
+    IEnumerator TimeToFall()
+    {
+        GetComponent<Collider>().enabled = false;
+        myBody.velocity = Vector3.zero;
+        yield return new WaitForSeconds(5);
+        myBody.constraints = RigidbodyConstraints.None;
+    }
+    public void Death()
+    {
+        StartCoroutine(TimeToFall());
+    }
 }

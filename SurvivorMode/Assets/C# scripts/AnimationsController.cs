@@ -17,4 +17,8 @@ public class AnimationsController : MonoBehaviour
     {
         myAnimator.SetFloat("Moving", x);
     }
+    public void DeathAnimation()
+    {
+        myAnimator.SetTrigger("DeathZombie");
+    }
 }

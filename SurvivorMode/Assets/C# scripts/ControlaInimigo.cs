@@ -58,7 +58,7 @@ public class ControlaInimigo : MonoBehaviour, IDamage
         if (clockZombieChangePosition <= 0)
         {
             randomPosition = positionRandomizerSphere();
-            clockZombieChangePosition += timeZombieChangePosition;
+            clockZombieChangePosition += timeZombieChangePosition + Random.Range(-1.5f, 1.5f);
         }
         bool nearEnough = Vector3.Distance(transform.position, randomPosition) <= 0.1;
 
@@ -96,7 +96,10 @@ public class ControlaInimigo : MonoBehaviour, IDamage
     }
     public void Death()
     {
-        Destroy(gameObject);
+        Destroy(gameObject,6);
+        myAnimator.DeathAnimation();
+        myMovements.Death();
+        this.enabled = false;
         AudioController.instance.PlayOneShot(ZombieDeathSong);
         verifyToGenerateMedicKit(probabilityGenerateMedicKit);
         zombieGenerator.ReduceZombies();
