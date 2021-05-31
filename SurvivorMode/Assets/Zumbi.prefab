@@ -659,7 +659,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4860367556579280305}
   m_LocalRotation: {x: -0, y: -0.30264434, z: -0, w: -0.95310354}
-  m_LocalPosition: {x: -18.525, y: -0.15, z: -18.75406}
+  m_LocalPosition: {x: -18.525, y: 0, z: -18.75406}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4863657605355009817}
@@ -757,6 +757,7 @@ MonoBehaviour:
   Jogador: {fileID: 0}
   ZombieDeathSong: {fileID: 8300000, guid: ce6f435058617b742b22bf6a7567b4fc, type: 3}
   MedicKit: {fileID: 3485237108976487195, guid: de273f4a1f55c7a44b2c7ad6ac43f6c7, type: 3}
+  zombieGenerator: {fileID: 0}
 --- !u!114 &2783651421965505780
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -17,6 +17,8 @@ public class ControlaInimigo : MonoBehaviour, IDamage
     private float probabilityGenerateMedicKit = 0.1f;
     public GameObject MedicKit;
     private UIController scrUIController;
+    [HideInInspector]
+    public ZombieGenerator zombieGenerator;
     void Start()
     {
         Jogador = GameObject.FindWithTag(Tags.Player);
@@ -25,7 +27,7 @@ public class ControlaInimigo : MonoBehaviour, IDamage
         myAnimator = GetComponent<AnimationsController>();
         ZombieRandomizer();
         myStatus = GetComponent<Status>();
-        scrUIController = GameObject.FindObjectOfType(typeof(UIController)) as UIController;
+        scrUIController = FindObjectOfType(typeof(UIController)) as UIController;
     }
     private void FixedUpdate()
     {
@@ -34,7 +36,7 @@ public class ControlaInimigo : MonoBehaviour, IDamage
         myAnimator.MovementPlayer(Direction.magnitude);
         if (distance > 15)
         {
-            
+
             ZombieWalking();
             myAnimator.ZombieAttackAnimation(false);
         }
@@ -53,13 +55,13 @@ public class ControlaInimigo : MonoBehaviour, IDamage
     void ZombieWalking()
     {
         clockZombieChangePosition -= Time.deltaTime;
-        if(clockZombieChangePosition <= 0)
+        if (clockZombieChangePosition <= 0)
         {
             randomPosition = positionRandomizerSphere();
             clockZombieChangePosition += timeZombieChangePosition;
         }
         bool nearEnough = Vector3.Distance(transform.position, randomPosition) <= 0.1;
-        
+
         if (nearEnough == false)
         {
             Direction = randomPosition - transform.position;
@@ -77,7 +79,7 @@ public class ControlaInimigo : MonoBehaviour, IDamage
     {
         int damage = Random.Range(20, 30);
         controlJogador.GetDamage(damage);
-    } 
+    }
     public void ZombieRandomizer()
     {
         int RandNum = Random.Range(1, 28);
@@ -97,10 +99,11 @@ public class ControlaInimigo : MonoBehaviour, IDamage
         Destroy(gameObject);
         AudioController.instance.PlayOneShot(ZombieDeathSong);
         verifyToGenerateMedicKit(probabilityGenerateMedicKit);
+        zombieGenerator.ReduceZombies();
     }
     void verifyToGenerateMedicKit(float probabilityGenerateMedicKit)
     {
-        if(Random.value <= probabilityGenerateMedicKit)
+        if (Random.value <= probabilityGenerateMedicKit)
         {
             Instantiate(MedicKit, transform.position, Quaternion.identity);
         }

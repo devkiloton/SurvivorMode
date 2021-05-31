@@ -11,14 +11,25 @@ public class ZombieGenerator : MonoBehaviour
     private float generatorDistance = 3;
     private float distanceFromPlayerToGenerateZombie = 20;
     private GameObject player;
+    private int maxNumberZombiesAlive = 3;
+    public int numberZombiesAlive;
+    private int timeNextLevelSec = 3;
+    private int numZombies;
 
     private void Start()
     {
+        numZombies = timeNextLevelSec;
         player = GameObject.FindWithTag("Player");
+        for(int i = 0; i < maxNumberZombiesAlive; i++ )
+        {
+            StartCoroutine(newZombie());
+        }
     }
     void Update()
     {
-        if(Vector3.Distance(transform.position, player.transform.position) > distanceFromPlayerToGenerateZombie)
+        bool distanceToGenerate = Vector3.Distance(transform.position, player.transform.position) > distanceFromPlayerToGenerateZombie;
+        bool maxNumber = numberZombiesAlive < maxNumberZombiesAlive;
+        if (distanceToGenerate && maxNumber)
         {
             Clock += Time.deltaTime;
             if (Clock >= timeToGenZombie)
@@ -26,7 +37,13 @@ public class ZombieGenerator : MonoBehaviour
                 StartCoroutine(newZombie());
                 Clock = 0;
             }
-        } 
+        }
+        int timeToLoadNextLevel = (int)Time.timeSinceLevelLoad;
+        if (timeToLoadNextLevel > timeNextLevelSec)
+        {
+            maxNumberZombiesAlive++;
+            timeNextLevelSec += timeToLoadNextLevel + numZombies;
+        }
     }
     Vector3 positionRandomizerSphere()
     {
@@ -45,11 +62,18 @@ public class ZombieGenerator : MonoBehaviour
             colliders = Physics.OverlapSphere(position, 1, LayerZombie);
             yield return null;
         }
-        Instantiate(Zombie, position, transform.rotation);
+        ControlaInimigo zombie = Instantiate(Zombie, position, transform.rotation)
+                                            .GetComponent<ControlaInimigo>();
+        zombie.zombieGenerator = this;
+        numberZombiesAlive++;
     }
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.cyan;
         Gizmos.DrawWireSphere(transform.position, generatorDistance);
+    }
+    public void ReduceZombies()
+    {
+        numberZombiesAlive--;
     }
 }
