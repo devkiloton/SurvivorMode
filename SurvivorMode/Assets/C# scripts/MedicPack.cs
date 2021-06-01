@@ -12,7 +12,7 @@ public class MedicPack : MonoBehaviour
     }
     private void OnTriggerEnter(Collider collisionObject)
     {
-        if (collisionObject.CompareTag("Player"));
+        if (collisionObject.CompareTag("Player"))
         {
             collisionObject.GetComponent<ControlaJogador>().CureValue(cureValue);
             Destroy(gameObject);

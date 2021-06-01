@@ -14,10 +14,16 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter(Collider CollisionObject)
     {
-        if (CollisionObject.tag == Tags.Inimigo)
+        switch(CollisionObject.tag)
         {
-            CollisionObject.GetComponent<ControlaInimigo>().GetDamage(danoDoTiro);
+           case "Inimigo":
+                CollisionObject.GetComponent<ControlaInimigo>().GetDamage(danoDoTiro);
+                Destroy(gameObject);
+            break;
+           case "Boss":
+                CollisionObject.GetComponent<BossController>().GetDamage(danoDoTiro);
+                Destroy(gameObject);
+            break;
         }
-        Destroy(gameObject);
     }
 }

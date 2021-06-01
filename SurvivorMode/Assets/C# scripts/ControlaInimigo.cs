@@ -82,7 +82,7 @@ public class ControlaInimigo : MonoBehaviour, IDamage
     }
     public void ZombieRandomizer()
     {
-        int RandNum = Random.Range(1, 28);
+        int RandNum = Random.Range(1, 27);
         transform.GetChild(RandNum).gameObject.SetActive(true);
     }
     public void GetDamage(int damage)
