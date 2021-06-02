@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class BossController : MonoBehaviour, IDamage
 {
@@ -11,6 +12,7 @@ public class BossController : MonoBehaviour, IDamage
     private AnimationsController bossAnimation;
     private SpriteMovements bossMovement;
     public GameObject MedicPack;
+    public Slider BossLifeBar;
     private void Start()
     {
         player = GameObject.FindWithTag("Player").transform;
@@ -19,6 +21,8 @@ public class BossController : MonoBehaviour, IDamage
         agent.speed = bossStatus.Velocity;
         bossAnimation = GetComponent<AnimationsController>();
         bossMovement = GetComponent<SpriteMovements>();
+        BossLifeBar.maxValue = bossStatus.InitialLife;
+        SliderLifeUpdate();
     }
     private void Update()
     {
@@ -48,6 +52,7 @@ public class BossController : MonoBehaviour, IDamage
     public void GetDamage(int damage)
     {
         bossStatus.Life -= damage;
+        SliderLifeUpdate();
         if (bossStatus.Life <= 0)
         {
             Death();
@@ -64,5 +69,9 @@ public class BossController : MonoBehaviour, IDamage
         Instantiate(MedicPack, transform.position, Quaternion.identity);
         Destroy(gameObject, 6);
 
+    }
+    public void SliderLifeUpdate()
+    {
+        BossLifeBar.value = bossStatus.Life;
     }
 }

@@ -42,6 +42,7 @@ SkinnedMeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -389,6 +390,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   MedicPack: {fileID: 3485237108976487195, guid: de273f4a1f55c7a44b2c7ad6ac43f6c7, type: 3}
+  BossLifeBar: {fileID: 6507901789285180194, guid: c4edcf01208f7154f99a6c8fa06b9305, type: 3}
 --- !u!1 &4860512402938399803
 GameObject:
   m_ObjectHideFlags: 0

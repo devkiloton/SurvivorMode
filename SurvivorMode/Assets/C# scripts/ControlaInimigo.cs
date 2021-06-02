@@ -32,25 +32,28 @@ public class ControlaInimigo : MonoBehaviour, IDamage
     private void FixedUpdate()
     {
         float distance = Vector3.Distance(transform.position, Jogador.transform.position);
-        myMovements.QuarternionRotation(Direction);
-        myAnimator.MovementPlayer(Direction.magnitude);
+        
         if (distance > 15)
         {
 
             ZombieWalking();
             myAnimator.ZombieAttackAnimation(false);
+            rotation();
         }
         else if (distance > 2.8)
         {
             Direction = Jogador.transform.position - transform.position;
             myMovements.Movement(Direction, myStatus.Velocity);
             myAnimator.ZombieAttackAnimation(false);
+            rotation();
         }
         else
         {
             Direction = Jogador.transform.position - transform.position;
             myAnimator.ZombieAttackAnimation(true);
+            rotation();
         }
+        myAnimator.MovementPlayer(Direction.magnitude);
     }
     void ZombieWalking()
     {
@@ -110,5 +113,10 @@ public class ControlaInimigo : MonoBehaviour, IDamage
         {
             Instantiate(MedicKit, transform.position, Quaternion.identity);
         }
+    }
+    private void rotation()
+    {
+        myMovements.QuarternionRotation(Direction);
+        //myAnimator.MovementPlayer(Direction.magnitude);
     }
 }

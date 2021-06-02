@@ -13,7 +13,7 @@ public class BossGenerator : MonoBehaviour
     }
     private void Update()
     {
-        if(Time.timeSinceLevelLoad >= timeNextGen)
+        if (Time.timeSinceLevelLoad >= timeNextGen)
         {
             Instantiate(BossPrefab, transform.position, Quaternion.identity);
             timeNextGen = Time.timeSinceLevelLoad + TimeBetweenGen;

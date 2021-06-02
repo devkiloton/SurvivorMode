@@ -11,14 +11,14 @@ public class ZombieGenerator : MonoBehaviour
     private float generatorDistance = 3;
     private float distanceFromPlayerToGenerateZombie = 20;
     private GameObject player;
-    private int maxNumberZombiesAlive = 3;
+    private int maxNumberZombiesAlive = 2;
     public int numberZombiesAlive;
-    private int timeNextLevelSec = 1;
+    private int timeNextLevelSec = 5;
     private int numZombies;
 
     private void Start()
     {
-        maxNumberZombiesAlive = 3;
+        //maxNumberZombiesAlive = 2;
         numZombies = timeNextLevelSec;
         player = GameObject.FindWithTag("Player");
         for(int i = 0; i < maxNumberZombiesAlive; i++ )
