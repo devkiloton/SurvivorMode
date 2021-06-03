@@ -4,16 +4,21 @@ using UnityEngine;
 
 public class PlayerMovement : SpriteMovements
 {
-    public GameObject aimPosition;
+    private Vector3 diference;
+    private ControlaJogador direction;
+    private void Awake()
+    {
+        direction = GetComponent<ControlaJogador>();
+    }
     public void PlayerRotation(LayerMask FloorMask)
     {
         Ray sight = Camera.main.ScreenPointToRay(Input.mousePosition);
-        Plane aimPlane = new Plane(Vector3.up, aimPosition.transform.position);
-        if (aimPlane.Raycast(sight, out float colisionDistance))
+        RaycastHit impact;
+        Debug.DrawRay(sight.origin, sight.direction);
+        if (Physics.Raycast(sight, out impact, 100, FloorMask))
         {
-            Vector3 colisionCoordinates = sight.GetPoint(colisionDistance);
-            colisionCoordinates.y = 0;
-            Vector3 PlayerSight = colisionCoordinates - transform.position;
+            Vector3 PlayerSight = impact.point - transform.position;
+            PlayerSight.y = transform.position.y;
             QuarternionRotation(PlayerSight);
         }
     }

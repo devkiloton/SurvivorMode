@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 3485237108976487195}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -29.15, y: 0.44144058, z: -16.19}
-  m_LocalScale: {x: 1.35, y: 2.1, z: 1.35}
+  m_LocalScale: {x: 1.4, y: 2.64, z: 1.4}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -53,6 +53,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -94,7 +95,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.29, y: 1.78, z: 2.12}
+  m_Size: {x: 2.29, y: 4.6, z: 1.6}
   m_Center: {x: 0, y: 0.20893933, z: -0.000000014901161}
 --- !u!114 &3485162261951458192
 MonoBehaviour:

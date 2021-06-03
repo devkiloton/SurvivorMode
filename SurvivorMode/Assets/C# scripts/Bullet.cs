@@ -14,16 +14,16 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter(Collider CollisionObject)
     {
-        switch(CollisionObject.tag)
+        switch (CollisionObject.tag)
         {
-           case "Inimigo":
+            case "Inimigo":
                 CollisionObject.GetComponent<ControlaInimigo>().GetDamage(danoDoTiro);
                 Destroy(gameObject);
-            break;
-           case "Boss":
+                break;
+            case "Boss":
                 CollisionObject.GetComponent<BossController>().GetDamage(danoDoTiro);
                 Destroy(gameObject);
-            break;
+                break;
         }
     }
 }

@@ -264,7 +264,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4855223245024380403}
-  m_RootOrder: 24
+  m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!137 &4798440393626831517
 SkinnedMeshRenderer:
@@ -664,7 +664,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4860367556579280305}
   m_LocalRotation: {x: -0, y: -0.30264434, z: -0, w: -0.95310354}
-  m_LocalPosition: {x: -18.525, y: 0, z: -18.75406}
+  m_LocalPosition: {x: -18.525, y: -0.15, z: -18.75406}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4863657605355009817}
@@ -689,6 +689,7 @@ Transform:
   - {fileID: 4854954239954589171}
   - {fileID: 4863848421563908683}
   - {fileID: 4863660277995959959}
+  - {fileID: 4863407421771447757}
   - {fileID: 4863552067644553299}
   - {fileID: 4863869634435588215}
   - {fileID: 4863870841915367287}
@@ -761,7 +762,6 @@ MonoBehaviour:
   Jogador: {fileID: 0}
   ZombieDeathSong: {fileID: 8300000, guid: ce6f435058617b742b22bf6a7567b4fc, type: 3}
   MedicKit: {fileID: 3485237108976487195, guid: de273f4a1f55c7a44b2c7ad6ac43f6c7, type: 3}
-  zombieGenerator: {fileID: 0}
 --- !u!114 &2783651421965505780
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -774,7 +774,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a061f7fcddfcd54b889f194c49ab5d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myBody: {fileID: 4859588184997966724}
+  myBody: {fileID: 0}
 --- !u!114 &1008953586173038906
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -966,7 +966,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4855223245024380403}
-  m_RootOrder: 22
+  m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!137 &4798528862139790349
 SkinnedMeshRenderer:
@@ -1733,7 +1733,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4855223245024380403}
-  m_RootOrder: 23
+  m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!137 &4799029099877027371
 SkinnedMeshRenderer:
@@ -2163,7 +2163,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4855223245024380403}
-  m_RootOrder: 25
+  m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!137 &4798662935555136433
 SkinnedMeshRenderer:
@@ -2267,6 +2267,108 @@ Transform:
   m_Father: {fileID: 4855322701770650045}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4861038947822608045
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4863407421771447757}
+  - component: {fileID: 4798801691551527003}
+  m_Layer: 7
+  m_Name: Zumbi_PapaiNoel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &4863407421771447757
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4861038947822608045}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4855223245024380403}
+  m_RootOrder: 22
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!137 &4798801691551527003
+SkinnedMeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4861038947822608045}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 3
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 81e9636b7e1fc8b45bcd58639405eea4, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  serializedVersion: 2
+  m_Quality: 0
+  m_UpdateWhenOffscreen: 0
+  m_SkinnedMotionVectors: 1
+  m_Mesh: {fileID: 4300044, guid: dbbc53a6bc8f5c64bb234194ce1380aa, type: 3}
+  m_Bones:
+  - {fileID: 4863657605355009817}
+  - {fileID: 4855147150072555289}
+  - {fileID: 4855336950566240159}
+  - {fileID: 4863335625766076873}
+  - {fileID: 4863328162894151495}
+  - {fileID: 4863656953434491291}
+  - {fileID: 4855189174389516375}
+  - {fileID: 4863640907081991277}
+  - {fileID: 4855108090217252381}
+  - {fileID: 4855322701770650045}
+  - {fileID: 4863389252926170783}
+  - {fileID: 4863464012365904777}
+  - {fileID: 4863663989321081735}
+  - {fileID: 4863583601729487457}
+  - {fileID: 4855354733926580249}
+  - {fileID: 4863855393138252181}
+  - {fileID: 4863603174572582603}
+  - {fileID: 4855164423097336931}
+  m_BlendShapeWeights: []
+  m_RootBone: {fileID: 4863657605355009817}
+  m_AABB:
+    m_Center: {x: 0.0000017285347, y: 1.6243598, z: -0.005243838}
+    m_Extent: {x: 1.6845055, y: 1.6243601, z: 0.4333868}
+  m_DirtyAABB: 0
 --- !u!1 &4861042902471925101
 GameObject:
   m_ObjectHideFlags: 0
@@ -2999,7 +3101,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4855223245024380403}
-  m_RootOrder: 26
+  m_RootOrder: 27
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!137 &4798489649782179773
 SkinnedMeshRenderer:

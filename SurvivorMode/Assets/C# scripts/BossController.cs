@@ -12,7 +12,9 @@ public class BossController : MonoBehaviour, IDamage
     private AnimationsController bossAnimation;
     private SpriteMovements bossMovement;
     public GameObject MedicPack;
+    public AudioClip ZombieDeathSong;
     public Slider BossLifeBar;
+    public UIController scrUIController;
     private void Start()
     {
         player = GameObject.FindWithTag("Player").transform;
@@ -21,6 +23,7 @@ public class BossController : MonoBehaviour, IDamage
         agent.speed = bossStatus.Velocity;
         bossAnimation = GetComponent<AnimationsController>();
         bossMovement = GetComponent<SpriteMovements>();
+        scrUIController = GameObject.FindObjectOfType(typeof(UIController)) as UIController;
         BossLifeBar.maxValue = bossStatus.InitialLife;
         SliderLifeUpdate();
     }
@@ -28,14 +31,15 @@ public class BossController : MonoBehaviour, IDamage
     {
         agent.SetDestination(player.position);
         bossAnimation.MovementPlayer(agent.velocity.magnitude);
-        bool nearFromPlayer = agent.remainingDistance <= agent.stoppingDistance;
         if (agent.hasPath == true)
         {
+            bool nearFromPlayer = agent.remainingDistance <= agent.stoppingDistance + 3.5;
             if (nearFromPlayer)
             {
-                bossAnimation.ZombieAttackAnimation(true);
+                agent.velocity = Vector3.zero;
                 Vector3 direction = player.position - transform.position;
                 bossMovement.QuarternionRotation(direction);
+                bossAnimation.ZombieAttackAnimation(true);
             }
             else
             {
@@ -67,8 +71,9 @@ public class BossController : MonoBehaviour, IDamage
         this.enabled = false;
         agent.enabled = false;
         Instantiate(MedicPack, transform.position, Quaternion.identity);
+        AudioController.instance.PlayOneShot(ZombieDeathSong);
+        scrUIController.ZombieCounterUpdate();
         Destroy(gameObject, 6);
-
     }
     public void SliderLifeUpdate()
     {

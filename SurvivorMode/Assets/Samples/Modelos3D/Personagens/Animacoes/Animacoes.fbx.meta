@@ -1,7 +1,7 @@
 fileFormatVersion: 2
 guid: d55a3dafe23105e409ee70d6605cbd49
 ModelImporter:
-  serializedVersion: 20200
+  serializedVersion: 21100
   internalIDToNameTable:
   - first:
       1: 100000
@@ -595,7 +595,7 @@ ModelImporter:
       74: 1827226128182048838
     second: Correr
   - first:
-      74: -6672390751882866874
+      74: 2529373970174966180
     second: Morte01
   externalObjects: {}
   materials:
@@ -642,15 +642,15 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
       loopBlendPositionXZ: 0
       keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
+      keepOriginalPositionY: 0
       keepOriginalPositionXZ: 0
-      heightFromFeet: 0
+      heightFromFeet: 1
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
@@ -692,7 +692,7 @@ ModelImporter:
       name: Morte01
       takeName: Take 001
       internalID: 0
-      firstFrame: 517
+      firstFrame: 510
       lastFrame: 547
       wrapMode: 0
       orientationOffsetY: 0
@@ -707,7 +707,7 @@ ModelImporter:
       loopBlendPositionXZ: 0
       keepOriginalOrientation: 0
       keepOriginalPositionY: 0
-      keepOriginalPositionXZ: 1
+      keepOriginalPositionXZ: 0
       heightFromFeet: 1
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000

@@ -13,7 +13,6 @@ public class ControlaJogador : MonoBehaviour, IDamage, ICure
     private PlayerMovement myPlayerAnimatorAndRotation;
     private AnimationsController myMovements;
     public Status myStatus;
-    private int timeToDontReceiveDamageSec = 1;
     private void Start()
     {
         myPlayerAnimatorAndRotation = GetComponent<PlayerMovement>();
@@ -36,15 +35,12 @@ public class ControlaJogador : MonoBehaviour, IDamage, ICure
     }
     public void GetDamage(int damage)
     {
-        if (Time.timeSinceLevelLoad > timeToDontReceiveDamageSec)
+        myStatus.Life -= damage;
+        AudioController.instance.PlayOneShot(DamageSound);
+        ScrUIController.LifeBarClock();
+        if (myStatus.Life <= 0)
         {
-            myStatus.Life -= damage;
-            AudioController.instance.PlayOneShot(DamageSound);
-            ScrUIController.LifeBarClock();
-            if (myStatus.Life <= 0)
-            {
-                Death();
-            }
+            Death();
         }
     }
     public void Death()

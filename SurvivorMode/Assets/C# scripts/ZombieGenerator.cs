@@ -11,17 +11,16 @@ public class ZombieGenerator : MonoBehaviour
     private float generatorDistance = 3;
     private float distanceFromPlayerToGenerateZombie = 20;
     private GameObject player;
-    private int maxNumberZombiesAlive = 2;
+    private int maxNumberZombiesAlive = 3;
     public int numberZombiesAlive;
-    private int timeNextLevelSec = 5;
+    private int timeNextLevelSec = 10;
     private int numZombies;
 
     private void Start()
     {
-        //maxNumberZombiesAlive = 2;
         numZombies = timeNextLevelSec;
         player = GameObject.FindWithTag("Player");
-        for(int i = 0; i < maxNumberZombiesAlive; i++ )
+        for (int i = 0; i < maxNumberZombiesAlive; i++)
         {
             StartCoroutine(newZombie());
         }
@@ -30,7 +29,7 @@ public class ZombieGenerator : MonoBehaviour
     {
         bool distanceToGenerate = Vector3.Distance(transform.position, player.transform.position) > distanceFromPlayerToGenerateZombie;
         bool maxNumber = numberZombiesAlive < maxNumberZombiesAlive;
-        if (distanceToGenerate && maxNumber)
+        if (distanceToGenerate == true && maxNumber)
         {
             Clock += Time.deltaTime;
             if (Clock >= timeToGenZombie)
@@ -38,19 +37,19 @@ public class ZombieGenerator : MonoBehaviour
                 StartCoroutine(newZombie());
                 Clock = 0;
             }
-        }
-        int timeToLoadNextLevel = (int)Time.timeSinceLevelLoad;
-        if (timeToLoadNextLevel > timeNextLevelSec)
-        {
-            maxNumberZombiesAlive++;
-            timeNextLevelSec += timeToLoadNextLevel + numZombies;
-        }
+            int timeToLoadNextLevel = (int)Time.timeSinceLevelLoad;
+            if (timeToLoadNextLevel > timeNextLevelSec)
+            {
+                maxNumberZombiesAlive++;
+                timeNextLevelSec += timeToLoadNextLevel + numZombies;
+            }
+        } 
     }
     Vector3 positionRandomizerSphere()
     {
         Vector3 positionZombie = Random.insideUnitSphere * generatorDistance;
         positionZombie += transform.position;
-        positionZombie.y = transform.position.y;
+        positionZombie.y = 0;
         return positionZombie;
     }
     IEnumerator newZombie()
