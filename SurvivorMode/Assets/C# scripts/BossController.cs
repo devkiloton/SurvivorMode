@@ -15,6 +15,8 @@ public class BossController : MonoBehaviour, IDamage
     public AudioClip ZombieDeathSong;
     public Slider BossLifeBar;
     public UIController scrUIController;
+    public Image SliderImage;
+    public Color MaxLifeColor, MinLifeColor;
     private void Start()
     {
         player = GameObject.FindWithTag("Player").transform;
@@ -78,5 +80,8 @@ public class BossController : MonoBehaviour, IDamage
     public void SliderLifeUpdate()
     {
         BossLifeBar.value = bossStatus.Life;
+        float lifePercentage = (float)bossStatus.Life / bossStatus.InitialLife;
+        Color lifeColor = Color.Lerp(MinLifeColor, MaxLifeColor, lifePercentage);
+        SliderImage.color = lifeColor;
     }
 }

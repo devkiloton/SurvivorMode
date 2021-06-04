@@ -21,10 +21,8 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -372,7 +370,7 @@ ScriptsOnlyBuild:
     className: TestResultRendererCallback
   - hash:
       serializedVersion: 2
-      Hash: cba64537f2170ecf89f2d2015a7b473e
+      Hash: 556dd849beb4f0ee47e60b085c547160
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerMovement
@@ -715,5 +713,5 @@ ScriptsOnlyBuild:
   platform: 19
   scenePathNames:
   - Assets/game.unity
-  playerPath: C:/Users/Yarego Brozek/Desktop/builds_SurvivorMode/build_30_may_win3/Survivor
+  playerPath: C:/Users/Yarego Brozek/Desktop/builds_SurvivorMode/builds_SurvivorMode_win4/Survivor
     Mode.exe
