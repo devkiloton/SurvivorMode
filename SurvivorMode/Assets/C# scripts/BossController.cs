@@ -17,6 +17,7 @@ public class BossController : MonoBehaviour, IDamage
     public UIController scrUIController;
     public Image SliderImage;
     public Color MaxLifeColor, MinLifeColor;
+    public GameObject BossBlood;
     private void Start()
     {
         player = GameObject.FindWithTag("Player").transform;
@@ -83,5 +84,9 @@ public class BossController : MonoBehaviour, IDamage
         float lifePercentage = (float)bossStatus.Life / bossStatus.InitialLife;
         Color lifeColor = Color.Lerp(MinLifeColor, MaxLifeColor, lifePercentage);
         SliderImage.color = lifeColor;
+    }
+    public void BossBloodMethod(Vector3 position, Quaternion rotation)
+    {
+        Instantiate(BossBlood, position, rotation);
     }
 }

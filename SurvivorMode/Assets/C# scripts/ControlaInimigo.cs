@@ -19,6 +19,7 @@ public class ControlaInimigo : MonoBehaviour, IDamage
     private UIController scrUIController;
     [HideInInspector]
     public ZombieGenerator zombieGenerator;
+    public GameObject ZombieBlood; 
     void Start()
     {
         Jogador = GameObject.FindWithTag(Tags.Player);
@@ -110,5 +111,9 @@ public class ControlaInimigo : MonoBehaviour, IDamage
         {
             Instantiate(MedicKit, transform.position, Quaternion.identity);
         }
+    }
+    public void ZombieBloodMethod(Vector3 position, Quaternion rotation)
+    {
+        Instantiate(ZombieBlood, position, rotation);
     }
 }

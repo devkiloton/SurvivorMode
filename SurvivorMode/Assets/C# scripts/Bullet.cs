@@ -14,15 +14,20 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter(Collider CollisionObject)
     {
+        Quaternion oppositeRotationBullet = Quaternion.LookRotation(transform.forward);
         switch (CollisionObject.tag)
         {
             case "Inimigo":
-                CollisionObject.GetComponent<ControlaInimigo>().GetDamage(danoDoTiro);
+                ControlaInimigo player = CollisionObject.GetComponent<ControlaInimigo>();
+                player.ZombieBloodMethod(transform.position, oppositeRotationBullet);
                 Destroy(gameObject);
+                player.GetDamage(danoDoTiro);
                 break;
             case "Boss":
-                CollisionObject.GetComponent<BossController>().GetDamage(danoDoTiro);
+                BossController boss = CollisionObject.GetComponent<BossController>();
+                boss.BossBloodMethod(transform.position, oppositeRotationBullet);
                 Destroy(gameObject);
+                boss.GetDamage(danoDoTiro);
                 break;
         }
     }

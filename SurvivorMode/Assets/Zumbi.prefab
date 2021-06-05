@@ -762,6 +762,8 @@ MonoBehaviour:
   Jogador: {fileID: 0}
   ZombieDeathSong: {fileID: 8300000, guid: ce6f435058617b742b22bf6a7567b4fc, type: 3}
   MedicKit: {fileID: 3485237108976487195, guid: de273f4a1f55c7a44b2c7ad6ac43f6c7, type: 3}
+  zombieGenerator: {fileID: 0}
+  ZombieBlood: {fileID: 4031083064973428454, guid: 716c4b8c948432c4784534f874d5cd2f, type: 3}
 --- !u!114 &2783651421965505780
 MonoBehaviour:
   m_ObjectHideFlags: 0

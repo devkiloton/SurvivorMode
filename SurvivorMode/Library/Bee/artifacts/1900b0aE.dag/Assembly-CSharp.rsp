@@ -333,6 +333,7 @@
 "Assets/C# scripts/ControlaJogador.cs"
 "Assets/C# scripts/ICure.cs"
 "Assets/C# scripts/IDamage.cs"
+"Assets/C# scripts/MainMenu.cs"
 "Assets/C# scripts/MedicPack.cs"
 "Assets/C# scripts/PlayerMovement.cs"
 "Assets/C# scripts/SpriteMovements.cs"
