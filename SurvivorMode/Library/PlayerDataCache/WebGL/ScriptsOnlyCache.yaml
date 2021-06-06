@@ -7,16 +7,16 @@ ScriptsOnlyBuild:
     - BossController
     - BossGenerator
     - Bullet
-    - ControlaArma
-    - ControlaCamera
-    - ControlaInimigo
-    - ControlaJogador
+    - CamController
+    - GunController
     - MainMenu
     - MedicPack
+    - PlayerController
     - PlayerMovement
     - SpriteMovements
     - Status
     - UIController
+    - ZombieController
     - ZombieGenerator
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
@@ -87,17 +87,17 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 1472}
-    - Class: 114
       Script: {instanceID: 1474}
     - Class: 114
-      Script: {instanceID: 2078}
+      Script: {instanceID: 1476}
     - Class: 114
-      Script: {instanceID: 2418}
+      Script: {instanceID: 2080}
     - Class: 114
-      Script: {instanceID: 2544}
+      Script: {instanceID: 2420}
     - Class: 114
-      Script: {instanceID: 2948}
+      Script: {instanceID: 2546}
+    - Class: 114
+      Script: {instanceID: 2950}
     - Class: 114
       Script: {instanceID: 3046}
     - Class: 114
@@ -182,31 +182,29 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 1472}
-    - Class: 114
       Script: {instanceID: 1474}
     - Class: 114
-      Script: {instanceID: 1678}
+      Script: {instanceID: 1476}
     - Class: 114
-      Script: {instanceID: 1702}
+      Script: {instanceID: 1680}
     - Class: 114
-      Script: {instanceID: 2078}
+      Script: {instanceID: 1704}
     - Class: 114
-      Script: {instanceID: 2418}
+      Script: {instanceID: 2080}
     - Class: 114
-      Script: {instanceID: 2476}
+      Script: {instanceID: 2420}
     - Class: 114
-      Script: {instanceID: 2544}
+      Script: {instanceID: 2478}
     - Class: 114
-      Script: {instanceID: 2654}
+      Script: {instanceID: 2546}
     - Class: 114
-      Script: {instanceID: 2832}
+      Script: {instanceID: 2656}
     - Class: 114
-      Script: {instanceID: 2844}
+      Script: {instanceID: 2834}
     - Class: 114
-      Script: {instanceID: 2948}
+      Script: {instanceID: 2846}
     - Class: 114
-      Script: {instanceID: 2986}
+      Script: {instanceID: 2950}
     - Class: 114
       Script: {instanceID: 3046}
     - Class: 114
@@ -226,9 +224,11 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 4204}
     - Class: 114
-      Script: {instanceID: 4798}
+      Script: {instanceID: 4502}
     - Class: 114
-      Script: {instanceID: 4918}
+      Script: {instanceID: 4800}
+    - Class: 114
+      Script: {instanceID: 4920}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -441,7 +441,7 @@ ScriptsOnlyBuild:
       Hash: 5b8b7729a59dbe832c17c8544245f510
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: ControlaJogador
+    className: PlayerController
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -474,16 +474,16 @@ ScriptsOnlyBuild:
     className: TestResultRendererCallback
   - hash:
       serializedVersion: 2
-      Hash: 556dd849beb4f0ee47e60b085c547160
+      Hash: b0adfa5169fac316140d6b581d4cc14b
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerMovement
   - hash:
       serializedVersion: 2
-      Hash: 03fa429829e06f070a752482313422ee
+      Hash: 26fe8d64d18a6adb64611d959c11fe05
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: ControlaCamera
+    className: CamController
   - hash:
       serializedVersion: 2
       Hash: 748dd2a2a28da4e618912da5ac45684b
@@ -508,12 +508,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: MarkerTrack
-  - hash:
-      serializedVersion: 2
-      Hash: eafc0409205c880ae54efdc12c968847
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: ControlaArma
   - hash:
       serializedVersion: 2
       Hash: 8e6ceabfd38a184413d69b7db56c89cc
@@ -549,7 +543,7 @@ ScriptsOnlyBuild:
       Hash: e7e4d69f799a106073f4dde70e82e97a
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: ControlaInimigo
+    className: ZombieController
   - hash:
       serializedVersion: 2
       Hash: 8aa3d6ccbcb54ee8db6c1229854adaaa
@@ -750,7 +744,7 @@ ScriptsOnlyBuild:
     className: ControlPlayableAsset
   - hash:
       serializedVersion: 2
-      Hash: 9ca889b93008d7952126268552f30e72
+      Hash: 6c28244c9f10b90ba24d22e5cf1a4484
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: BossController
@@ -792,6 +786,12 @@ ScriptsOnlyBuild:
     className: TMP_ScrollbarEventHandler
   - hash:
       serializedVersion: 2
+      Hash: eafc0409205c880ae54efdc12c968847
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: GunController
+  - hash:
+      serializedVersion: 2
       Hash: 8220b46879dc5e37db1b940c938f5744
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
@@ -830,4 +830,4 @@ ScriptsOnlyBuild:
   scenePathNames:
   - Assets/Menu.unity
   - Assets/game.unity
-  playerPath: C:/Users/Yarego Brozek/Desktop/builds_SurvivorMode/SurvivorMode_1.0
+  playerPath: C:/Users/Yarego Brozek/Desktop/builds_SurvivorMode/SurvivorMode_v1.0_WebGL

@@ -764,6 +764,9 @@ MonoBehaviour:
   MedicKit: {fileID: 3485237108976487195, guid: de273f4a1f55c7a44b2c7ad6ac43f6c7, type: 3}
   zombieGenerator: {fileID: 0}
   ZombieBlood: {fileID: 4031083064973428454, guid: 716c4b8c948432c4784534f874d5cd2f, type: 3}
+  distanceZombiesFollowPlayer: 15
+  timeUpgradeDistanceZombiesFollowPlayer: 15
+  timeNextGen: 0
 --- !u!114 &2783651421965505780
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -802,7 +805,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InitialLife: 1
-  Velocity: 4
+  Velocity: 3
   Life: 0
 --- !u!1 &4860512402938399803
 GameObject:
