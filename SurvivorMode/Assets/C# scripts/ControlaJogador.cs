@@ -13,20 +13,31 @@ public class ControlaJogador : MonoBehaviour, IDamage, ICure
     private PlayerMovement myPlayerAnimatorAndRotation;
     private AnimationsController myMovements;
     public Status myStatus;
+    private Rigidbody rotation;
     private void Start()
     {
         myPlayerAnimatorAndRotation = GetComponent<PlayerMovement>();
         myMovements = GetComponent<AnimationsController>();
         myStatus = GetComponent<Status>();
+        rotation = GetComponent<Rigidbody>();
     }
     void Update()
     {
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
-
         Direction = new Vector3(x, 0, z);
-
-        myMovements.MovementPlayer(Direction.magnitude);
+        rotation.constraints = RigidbodyConstraints.FreezeRotationX |
+                               RigidbodyConstraints.FreezeRotationY |
+                               RigidbodyConstraints.FreezeRotationZ |
+                               RigidbodyConstraints.FreezePositionY;
+        if (x != 0 || z != 0)
+        {
+            Direction = new Vector3(x, 0, z);
+            myMovements.MovementPlayer(Direction.magnitude);
+            rotation.constraints = RigidbodyConstraints.FreezeRotationX |
+                                   RigidbodyConstraints.FreezeRotationZ |
+                                   RigidbodyConstraints.FreezePositionY;
+        }        
     }
     void FixedUpdate()
     {

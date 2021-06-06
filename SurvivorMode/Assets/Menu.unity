@@ -12503,7 +12503,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &661992558
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12585,7 +12585,7 @@ MonoBehaviour:
         m_MethodName: PlayOneShot
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: 84f51ab22fb8c12448823036de7c4739, type: 3}
+          m_ObjectArgument: {fileID: 8300000, guid: 9b735df2335dde04d8efee4a92310e0b, type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0

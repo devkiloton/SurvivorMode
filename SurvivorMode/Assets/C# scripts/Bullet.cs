@@ -20,15 +20,14 @@ public class Bullet : MonoBehaviour
             case "Inimigo":
                 ControlaInimigo player = CollisionObject.GetComponent<ControlaInimigo>();
                 player.ZombieBloodMethod(transform.position, oppositeRotationBullet);
-                Destroy(gameObject);
                 player.GetDamage(danoDoTiro);
                 break;
             case "Boss":
                 BossController boss = CollisionObject.GetComponent<BossController>();
                 boss.BossBloodMethod(transform.position, oppositeRotationBullet);
-                Destroy(gameObject);
                 boss.GetDamage(danoDoTiro);
                 break;
         }
+        Destroy(gameObject);
     }
 }

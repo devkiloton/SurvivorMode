@@ -5,7 +5,7 @@ using UnityEngine;
 public class BossGenerator : MonoBehaviour
 {
     private float timeNextGen = 0;
-    public float TimeBetweenGen = 10;
+    public float TimeBetweenGen = 15;
     public GameObject BossPrefab;
     public Transform[] PossibleCoordinatesBossBorns;
     private Transform player;

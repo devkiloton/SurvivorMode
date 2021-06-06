@@ -16,8 +16,7 @@ public class SpriteMovements : MonoBehaviour
     }
     public void KeyboardMovement(Vector3 direction, float velocity)
     {
-        myBody.MovePosition(myBody.position +
-                           (direction * velocity * Time.deltaTime));
+        GetComponent<Rigidbody>().AddForce(direction * velocity*200); ;
     }
     public void QuarternionRotation(Vector3 direction)
     {

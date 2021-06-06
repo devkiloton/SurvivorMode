@@ -19,9 +19,13 @@ public class ControlaInimigo : MonoBehaviour, IDamage
     private UIController scrUIController;
     [HideInInspector]
     public ZombieGenerator zombieGenerator;
-    public GameObject ZombieBlood; 
+    public GameObject ZombieBlood;
+    public int distanceZombiesFollowPlayer = 20;
+    public float timeUpgradeDistanceZombiesFollowPlayer = 15;
+    public float timeNextGen;
     void Start()
     {
+        timeNextGen = timeUpgradeDistanceZombiesFollowPlayer;
         Jogador = GameObject.FindWithTag(Tags.Player);
         controlJogador = Jogador.GetComponent<ControlaJogador>();
         myMovements = GetComponent<SpriteMovements>();
@@ -35,11 +39,16 @@ public class ControlaInimigo : MonoBehaviour, IDamage
         float distance = Vector3.Distance(transform.position, Jogador.transform.position);
         myMovements.QuarternionRotation(Direction);
         myAnimator.MovementPlayer(Direction.magnitude);
-        if (distance > 15)
+        if (distance > distanceZombiesFollowPlayer)
         {
             
             ZombieWalking();
             myAnimator.ZombieAttackAnimation(false);
+            if (Time.timeSinceLevelLoad > timeNextGen)
+            {
+                distanceZombiesFollowPlayer += 10;
+                timeNextGen = Time.timeSinceLevelLoad + timeUpgradeDistanceZombiesFollowPlayer;
+            }
         }
         else if (distance > 2.8)
         {
