@@ -6,7 +6,7 @@ public class Status : MonoBehaviour
 {
     public int InitialLife = 100;
     public float Velocity = 4;
-    //[HideInInspector]
+    [HideInInspector]
     public int Life;
     private void Awake()
     {

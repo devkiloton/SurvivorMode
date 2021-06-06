@@ -23,7 +23,7 @@ public class BossGenerator : MonoBehaviour
             timeNextGen = Time.timeSinceLevelLoad + TimeBetweenGen;
         }
     }
-    Vector3 computeBiggestDistanceFromPlayer()
+    private Vector3 computeBiggestDistanceFromPlayer()
     {
         Vector3 biggestDistanceFromPlayer = Vector3.zero;
         float biggestDistance = 0;

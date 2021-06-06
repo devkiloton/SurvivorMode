@@ -11267,7 +11267,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1884102019447498, guid: 4b3bb44effa49480d8d18049684cc33a, type: 3}
       propertyPath: m_Name
-      value: Jogador
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 1884102019447498, guid: 4b3bb44effa49480d8d18049684cc33a, type: 3}
       propertyPath: m_IsActive
@@ -11989,7 +11989,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myBody: {fileID: 544937267}
-  aimPosition: {fileID: 1390978341}
+  AimPosition: {fileID: 1390978341}
 --- !u!114 &544937270
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11999,7 +11999,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 544937263}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c09a8c550b3fff8468ae60f3afd049e7, type: 3}
+  m_Script: {fileID: 11500000, guid: 55ee3831b27caeb43a427c8ebe90a822, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Bullet: {fileID: 1656753442996048046, guid: aefb25f4da449f44c970a866fb5a9b4e, type: 3}
@@ -34408,7 +34408,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 149346b8ceed67541a60a24777c147db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Jogador: {fileID: 544937263}
+  Player: {fileID: 544937263}
 --- !u!1001 &1562744672
 PrefabInstance:
   m_ObjectHideFlags: 0

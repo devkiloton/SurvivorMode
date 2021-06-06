@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class MedicPack : MonoBehaviour
 {
-    private int timeDestructionMedicPack = 5;
-    private int cureValue = 20;
+    private readonly int timeDestructionMedicPack = 5;
+    private readonly int cureValue = 20;
     private void Start()
     {
         Destroy(gameObject, timeDestructionMedicPack);
@@ -14,7 +14,7 @@ public class MedicPack : MonoBehaviour
     {
         if (collisionObject.CompareTag("Player"))
         {
-            collisionObject.GetComponent<ControlaJogador>().CureValue(cureValue);
+            collisionObject.GetComponent<PlayerController>().CureValue(cureValue);
             Destroy(gameObject);
         }
     }

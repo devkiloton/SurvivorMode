@@ -6,10 +6,10 @@ public class ZombieGenerator : MonoBehaviour
 {
     public GameObject Zombie;
     float Clock = 0;
-    private float timeToGenZombie = 1;
+    private readonly float timeToGenZombie = 1;
     public LayerMask LayerZombie;
-    private float generatorDistance = 3;
-    private float distanceFromPlayerToGenerateZombie = 20;
+    private readonly float generatorDistance = 3;
+    private readonly float distanceFromPlayerToGenerateZombie = 20;
     private GameObject player;
     private int maxNumberZombiesAlive = 3;
     public int numberZombiesAlive;
@@ -25,7 +25,7 @@ public class ZombieGenerator : MonoBehaviour
             StartCoroutine(newZombie());
         }
     }
-    void Update()
+    private void Update()
     {
         bool distanceToGenerate = Vector3.Distance(transform.position, player.transform.position) > distanceFromPlayerToGenerateZombie;
         bool maxNumber = numberZombiesAlive < maxNumberZombiesAlive;
@@ -45,14 +45,14 @@ public class ZombieGenerator : MonoBehaviour
             }
         } 
     }
-    Vector3 positionRandomizerSphere()
+    private Vector3 positionRandomizerSphere()
     {
         Vector3 positionZombie = Random.insideUnitSphere * generatorDistance;
         positionZombie += transform.position;
         positionZombie.y = 0;
         return positionZombie;
     }
-    IEnumerator newZombie()
+    private IEnumerator newZombie()
     {
         Vector3 position = positionRandomizerSphere();
         Collider[] colliders = Physics.OverlapSphere(position, 1, LayerZombie);
@@ -62,8 +62,8 @@ public class ZombieGenerator : MonoBehaviour
             colliders = Physics.OverlapSphere(position, 1, LayerZombie);
             yield return null;
         }
-        ControlaInimigo zombie = Instantiate(Zombie, position, transform.rotation)
-                                            .GetComponent<ControlaInimigo>();
+        ZombieController zombie = Instantiate(Zombie, position, transform.rotation)
+                                            .GetComponent<ZombieController>();
         zombie.zombieGenerator = this;
         numberZombiesAlive++;
     }

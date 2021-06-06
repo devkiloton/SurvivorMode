@@ -5,10 +5,10 @@ using UnityEngine;
 public class AudioController : MonoBehaviour
 {
     private AudioSource myAudio;
-    public static AudioSource instance;
+    public static AudioSource Instance;
     void Awake()
     {
         myAudio = GetComponent<AudioSource>();
-        instance = myAudio;
+        Instance = myAudio;
     }
 }

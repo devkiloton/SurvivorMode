@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class PlayerMovement : SpriteMovements
 {
-    public GameObject aimPosition;
+    public GameObject AimPosition;
     public void PlayerRotation(LayerMask FloorMask)
     {
         Ray sight = Camera.main.ScreenPointToRay(Input.mousePosition);
-        Plane aimPlane = new Plane(Vector3.up, aimPosition.transform.position);
+        Plane aimPlane = new Plane(Vector3.up, AimPosition.transform.position);
         if (aimPlane.Raycast(sight, out float colisionDistance))
         {
             Vector3 colisionCoordinates = sight.GetPoint(colisionDistance);

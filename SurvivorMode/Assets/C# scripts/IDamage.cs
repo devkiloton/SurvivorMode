@@ -4,7 +4,7 @@ using UnityEngine;
 
 public interface IDamage
 {
-    void GetDamage(int damage);
-    void Death();
+    public void GetDamage(int damage);
+    public void Death();
 
 }

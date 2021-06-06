@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class BossController : MonoBehaviour, IDamage
 {
-    public Transform player;
+    private Transform player;
     private NavMeshAgent agent;
     private Status bossStatus;
     private AnimationsController bossAnimation;
@@ -14,7 +14,7 @@ public class BossController : MonoBehaviour, IDamage
     public GameObject MedicPack;
     public AudioClip ZombieDeathSong;
     public Slider BossLifeBar;
-    public UIController scrUIController;
+    public UIController ScrUIController;
     public Image SliderImage;
     public Color MaxLifeColor, MinLifeColor;
     public GameObject BossBlood;
@@ -26,7 +26,7 @@ public class BossController : MonoBehaviour, IDamage
         agent.speed = bossStatus.Velocity;
         bossAnimation = GetComponent<AnimationsController>();
         bossMovement = GetComponent<SpriteMovements>();
-        scrUIController = GameObject.FindObjectOfType(typeof(UIController)) as UIController;
+        ScrUIController = GameObject.FindObjectOfType(typeof(UIController)) as UIController;
         BossLifeBar.maxValue = bossStatus.InitialLife;
         SliderLifeUpdate();
     }
@@ -53,7 +53,7 @@ public class BossController : MonoBehaviour, IDamage
     public void ZombieAttack()
     {
         int damage = Random.Range(30, 40);
-        player.GetComponent<ControlaJogador>().GetDamage(damage);
+        player.GetComponent<PlayerController>().GetDamage(damage);
     }
 
     public void GetDamage(int damage)
@@ -74,8 +74,8 @@ public class BossController : MonoBehaviour, IDamage
         this.enabled = false;
         agent.enabled = false;
         Instantiate(MedicPack, transform.position, Quaternion.identity);
-        AudioController.instance.PlayOneShot(ZombieDeathSong);
-        scrUIController.ZombieCounterUpdate();
+        AudioController.Instance.PlayOneShot(ZombieDeathSong);
+        ScrUIController.ZombieCounterUpdate();
         Destroy(gameObject, 6);
     }
     public void SliderLifeUpdate()

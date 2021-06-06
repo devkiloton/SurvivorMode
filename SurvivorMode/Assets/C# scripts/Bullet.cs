@@ -6,8 +6,8 @@ public class Bullet : MonoBehaviour
 {
     public float Velocity = 50;
     public AudioClip ZombieDeathSong;
-    private int danoDoTiro = 1;
-    void FixedUpdate()
+    private readonly int shotDamage = 1;
+    private void FixedUpdate()
     {
         GetComponent<Rigidbody>().MovePosition(GetComponent<Rigidbody>().position - transform.forward * Velocity * Time.deltaTime);
     }
@@ -18,14 +18,14 @@ public class Bullet : MonoBehaviour
         switch (CollisionObject.tag)
         {
             case "Inimigo":
-                ControlaInimigo player = CollisionObject.GetComponent<ControlaInimigo>();
+                ZombieController player = CollisionObject.GetComponent<ZombieController>();
                 player.ZombieBloodMethod(transform.position, oppositeRotationBullet);
-                player.GetDamage(danoDoTiro);
+                player.GetDamage(shotDamage);
                 break;
             case "Boss":
                 BossController boss = CollisionObject.GetComponent<BossController>();
                 boss.BossBloodMethod(transform.position, oppositeRotationBullet);
-                boss.GetDamage(danoDoTiro);
+                boss.GetDamage(shotDamage);
                 break;
         }
         Destroy(gameObject);

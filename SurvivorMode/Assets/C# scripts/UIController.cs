@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class UIController : MonoBehaviour
 {
-    private ControlaJogador scriptPlayer;
+    private PlayerController scriptPlayer;
     public Slider mySlider;
     public GameObject GameOverText;
     public Text TimeAlive;
@@ -17,7 +17,7 @@ public class UIController : MonoBehaviour
 
     void Start()
     {
-        scriptPlayer = GameObject.FindWithTag(Tags.Player).GetComponent<ControlaJogador>();
+        scriptPlayer = GameObject.FindWithTag(Tags.Player).GetComponent<PlayerController>();
         mySlider.maxValue = scriptPlayer.myStatus.Life;
         Time.timeScale = 1;
         savedTimeAliveMax = PlayerPrefs.GetFloat("BestTime");

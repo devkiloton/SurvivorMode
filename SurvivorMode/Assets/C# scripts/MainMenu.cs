@@ -21,7 +21,7 @@ public class MainMenu : MonoBehaviour
         StartCoroutine(QuitGameWithDelay());
     }
 
-    IEnumerator QuitGameWithDelay()
+   private IEnumerator QuitGameWithDelay()
     {
         yield return new WaitForSeconds(0.358f);
         Application.Quit();
