@@ -20,12 +20,6 @@ ScriptsOnlyBuild:
     - ZombieGenerator
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
-    UnityEditor.Graphs.dll:
-    - UnityEditor.Graphs.AnimationBlendTree.Graph
-    - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.Graph
-    - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
-    - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
     - UnityEditor.TestTools.TestRunner.TestListCacheData
@@ -830,5 +824,5 @@ ScriptsOnlyBuild:
   scenePathNames:
   - Assets/Menu.unity
   - Assets/game.unity
-  playerPath: C:/Users/Yarego Brozek/Desktop/builds_SurvivorMode/SurvivorMode_v1.0_Win/Survivor
+  playerPath: C:/Users/Yarego Brozek/Desktop/builds_SurvivorMode/SurvivorMode_v1.0_Win2/Survivor
     Mode.exe
