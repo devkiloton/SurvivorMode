@@ -12,7 +12,7 @@
 
 # Why? 
 
-- This project is my first game and it is a result of some months studying logic programming, C#,  Unity Framework and the Unity Engine. Here the objective was to do a simple game to introduce me in the world of 3D game developing e apply my C# knowledge!
+- This project is my first game and it is a result of some months studying the logic of programming, C#,  Unity Framework and the Unity Engine. Here the objective was to do a simple game to introduce me in the world of 3D game developing e apply my C# knowledge, trying to respect the good pratices of programming!
 
 - Also, you can use this project as you wish, be for study or commercial use. Just be careful with the arts, the sounds and their royalties! 
 
@@ -35,4 +35,9 @@
 - In this project i used AI through the NavMesh in Unity. The scene "game" has a mesh where the boss knows your place and the fastest way to get where you are, differently from zombies that just follow your position and can stop if collide with objects in the scene.
   ![alt](https://github.com/devkiloton/SurvivorMode/blob/master/SurvivorMode/Assets/Samples/GithubImages/2021-06-06%20(18).png)
   
-- Have a nice day!
+# Check the scripts
+- [Click here](https://github.com/devkiloton/SurvivorMode/tree/master/SurvivorMode/Assets/C%23%20scripts)
+
+# Final considerations
+- Dedicated to the nights i did not slept because i was addicted to code this game and solve the bugs.
+- Have a nice day! 
