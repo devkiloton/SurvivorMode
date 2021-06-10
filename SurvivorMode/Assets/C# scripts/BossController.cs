@@ -55,7 +55,6 @@ public class BossController : MonoBehaviour, IDamage
         int damage = Random.Range(30, 40);
         player.GetComponent<PlayerController>().GetDamage(damage);
     }
-
     public void GetDamage(int damage)
     {
         bossStatus.Life -= damage;
@@ -65,7 +64,6 @@ public class BossController : MonoBehaviour, IDamage
             Death();
         }
     }
-
     public void Death()
     {
         
